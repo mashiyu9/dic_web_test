@@ -3,18 +3,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
   <body>
-    <h1>課題！！！！！！！！！！！！！</h1>
+    <h1>web技術入門シリーズ課題</h1>
 
     <% require 'pg' %>
 
     <% connection = PG::connect(dbname: "goya") %>
     <% connection.internal_encoding = "UTF-8" %>
 
-    <form action="indicate.cgi" method="POST">
-       下記に文字を入力してください<br><br>
-      <input type="text"  name="input" ><br>
-      <input type="submit" name="送信" >
-    </form>
+
 
     <% result = connection.exec("select * from crops where not give_for = '自家消費' ;") %>
     <% data = [] %>
